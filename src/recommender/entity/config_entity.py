@@ -26,17 +26,6 @@ Student(
 
 """
 
-from dataclasses import dataclass
-
-@dataclass(frozen=True)
-class DataIngestionConfig:
-    root_dir: str
-
-    movies_path: str
-    ratings_path: str
-    tags_path: str
-    links_path: str
-
 
 """
 Why frozen=True?
@@ -55,3 +44,21 @@ Configuration should not change while the program is running.
 So we freeze it.
 
 """
+
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class DataIngestionConfig:
+    root_dir: str
+
+    movies_path: str
+    ratings_path: str
+    tags_path: str
+    links_path: str
+
+
+@dataclass(frozen=True)
+class DataValidationConfig:
+
+    root_dir: str
+    status_file: str
