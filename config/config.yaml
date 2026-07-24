@@ -1,0 +1,14 @@
+artifacts_root : artifacts 
+
+data_ingestion:
+    root_dir: artifacts/data_ingestions
+    
+    local_data_file:
+      movies: data/movies.csv
+      ratings: data/ratings.csv
+      tags: data/tags.csv 
+      links: data/links.csv 
+
+data_validation:
+    root_dir: artifacts/data_validation
+    status_file: artifacts/data_validation/status.txt

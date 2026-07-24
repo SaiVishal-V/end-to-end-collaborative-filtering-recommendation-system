@@ -1,4 +1,4 @@
-from src.recommender.entity.config_entity import DataIngestionConfig
+from src.recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig
 
 import yaml
 
@@ -10,7 +10,7 @@ class ConfigurationManager:
 
     def get_data_ingestion_config(self):
 
-        config = self.config["data_ingestion"]
+        config = self.config["data_ingestion"] #Self.config stores the entire configuration dictionary after reading the YAML file
 
         return DataIngestionConfig(
 
@@ -24,4 +24,21 @@ class ConfigurationManager:
 
             links_path=config["local_data_file"]["links"]
 
-        )   
+        )  
+
+    def get_data_validation_config(self):
+
+        config = self.config["data_validation"]
+
+        return DataValidationConfig(
+
+             root_dir=config["root_dir"],
+            
+                        movies_path=config["local_data_file"]["movies"],
+            
+                        ratings_path=config["local_data_file"]["ratings"],
+            
+                        tags_path=config["local_data_file"]["tags"],
+            
+                        links_path=config["local_data_file"]["links"]
+        ) 
