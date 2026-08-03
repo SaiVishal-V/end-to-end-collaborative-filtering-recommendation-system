@@ -62,3 +62,4 @@ class DataValidationConfig:
 
     root_dir: str
     status_file: str
+    data_ingestion_dir: str

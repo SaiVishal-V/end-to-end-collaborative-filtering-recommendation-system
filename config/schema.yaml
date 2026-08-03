@@ -1,0 +1,25 @@
+movies:
+  columns:
+    - movieId
+    - title
+    - genres
+
+ratings:
+  columns:
+    - userId
+    - movieId
+    - rating
+    - timestamp
+
+tags:
+  columns:
+    - userId
+    - movieId
+    - tag
+    - timestamp
+
+links:
+  columns:
+    - movieId
+    - imdbId
+    - tmdbId
