@@ -26,10 +26,10 @@ class DataValidation:
                                 "links.csv": ["movieId", "imdbId", "tmdbId"]
                             }
 
-            for file, expected_columns in required_files:
+            for file, expected_columns in required_files.items():
 
                 path = os.path.join(
-                    "artifacts/data_ingestion", #Replce if not working [ self.config.data_ingestion_dir ]
+                    self.config.data_ingestion_dir, 
                     file
                 )
 
@@ -55,12 +55,28 @@ class DataValidation:
                 if missing_columns:
 
                     logging.error(f"{file} missing columns: {missing_columns}")
-                status = False
+                    status = False
+
+            os.makedirs(
+                    self.config.root_dir,
+                    exist_ok=True
+                )
                 
             if status:
+
                 logging.info("Data Validation completed successfully")
+                with open(self.config.status_file, "w") as file:
+                    file.write( "Validation Status: PASS\n"
+                                "All validation checks completed successfully.")
+
             else:
+
                 logging.error("Data Validation Failed")
-                
+                with open(self.config.status_file, "w") as file:
+                    file.write( "Validation Status: FAIL\n"
+                                "Please check the log file for details.")
+            return status
+
+        
         except Exception as e:
             raise CustomException(e, sys)

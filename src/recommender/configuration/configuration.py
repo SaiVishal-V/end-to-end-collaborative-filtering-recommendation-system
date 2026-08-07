@@ -29,18 +29,15 @@ class ConfigurationManager:
     def get_data_validation_config(self):
 
         validation_config = self.config["data_validation"]
-        ingestion_config = self.config["data_ingestion"]
 
         return DataValidationConfig(
 
             root_dir=validation_config["root_dir"],
 
-            movies_path=ingestion_config["local_data_file"]["movies"],
+            status_file=validation_config["status_file"],
 
-            ratings_path=ingestion_config["local_data_file"]["ratings"],
+            data_ingestion_dir=validation_config["data_ingestion_dir"],
 
-            tags_path=ingestion_config["local_data_file"]["tags"],
+            schema_file=validation_config["schema_file"]
 
-            links_path=ingestion_config["local_data_file"]["links"]
-
-        )
+    )
