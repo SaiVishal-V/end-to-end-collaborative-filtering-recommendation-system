@@ -14,3 +14,8 @@ data_validation:
   status_file: artifacts/data_validation/status.txt
   data_ingestion_dir: artifacts/data_ingestion
   schema_file: config/schema.yaml
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  merged_data_path: artifacts/data_transformation/merged_data.csv
+  pivot_table_path: artifacts/data_transformation/pivot_table.pkl
