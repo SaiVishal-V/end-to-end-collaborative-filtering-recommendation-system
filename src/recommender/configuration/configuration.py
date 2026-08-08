@@ -1,4 +1,4 @@
-from src.recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from src.recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
 
 import yaml
 
@@ -41,3 +41,14 @@ class ConfigurationManager:
             schema_file=validation_config["schema_file"]
 
     )
+
+    def get_data_transformation_config(self):
+
+        transformation_config = self.config["data_transformation"]
+
+        return DataTransformationConfig(
+
+            root_dir = transformation_config["root_dir"],
+            merged_data_path = transformation_config["merged_data_path"],
+            pivot_table_path = transformation_config["pivot_table_path"]
+        )

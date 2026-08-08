@@ -224,3 +224,6 @@ logs/
 # VS Code
 .vscode/
 .learning_journal.md
+
+# artifacts
+artifacts/

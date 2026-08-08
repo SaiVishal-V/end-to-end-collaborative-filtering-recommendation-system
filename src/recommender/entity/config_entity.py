@@ -64,3 +64,9 @@ class DataValidationConfig:
     status_file: str
     data_ingestion_dir: str
     schema_file: str
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: str
+    merged_data_path: str
+    pivot_table_path: str
