@@ -70,3 +70,8 @@ class DataTransformationConfig:
     root_dir: str
     merged_data_path: str
     pivot_table_path: str
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: str
+    model_path: str 
