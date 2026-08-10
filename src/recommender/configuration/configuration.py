@@ -1,4 +1,9 @@
-from src.recommender.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
+from src.recommender.entity.config_entity import (
+    DataIngestionConfig,
+    DataValidationConfig, 
+    DataTransformationConfig,
+    ModelTrainerConfig
+)
 
 import yaml
 
@@ -51,4 +56,13 @@ class ConfigurationManager:
             root_dir = transformation_config["root_dir"],
             merged_data_path = transformation_config["merged_data_path"],
             pivot_table_path = transformation_config["pivot_table_path"]
+        )
+
+    def get_model_trainer_config(self):
+
+        model_trainer_config = self.config["model_trainer"]
+
+        return ModelTrainerConfig(
+            root_dir= model_trainer_config["root_dir"],
+            model_path=model_trainer_config["model_path"]
         )

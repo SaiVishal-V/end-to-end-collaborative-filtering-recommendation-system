@@ -19,3 +19,7 @@ data_transformation:
   root_dir: artifacts/data_transformation
   merged_data_path: artifacts/data_transformation/merged_data.csv
   pivot_table_path: artifacts/data_transformation/pivot_table.pkl
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  model_path: artifacts/model_trainer/model.pkl
